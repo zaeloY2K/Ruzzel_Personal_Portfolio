@@ -1,0 +1,456 @@
+
+/* =================================
+   GLOBAL STYLES
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #080706;
+    color: #f5efd8;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+/* =================================
+   NAVBAR
+================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    padding: 0 7%;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    background: rgba(8, 7, 6, 0.92);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo {
+    color: #f5efd8;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #d4af37;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+    color: #c5b98f;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #d4af37;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 1px;
+    background: #d4af37;
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+/* =================================
+   CONTACT PAGE
+================================= */
+
+.contact-page {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    padding: 145px 8% 90px;
+    animation: pageEnter 0.8s ease forwards;
+}
+
+.contact-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+        radial-gradient(
+            ellipse at 50% 35%,
+            rgba(212, 175, 55, 0.07),
+            transparent 55%
+        ),
+        linear-gradient(
+            rgba(8, 7, 6, 0.78),
+            rgba(8, 7, 6, 0.94)
+        ),
+        url("../background.jpg") center / cover no-repeat;
+}
+
+.contact-section {
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* =================================
+   HEADING
+================================= */
+
+.section-label {
+    color: #d4af37;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 7px;
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.contact-section h1 {
+    color: #f5efd8;
+    font-size: clamp(45px, 6vw, 76px);
+    font-weight: 500;
+    letter-spacing: 3px;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.contact-section h1 span {
+    color: #d4af37;
+}
+
+/* =================================
+   ANIMATED GOLD DIVIDER
+================================= */
+
+.gold-line {
+    position: relative;
+    width: min(570px, 80%);
+    height: 2px;
+    margin: 30px auto;
+    background: rgba(212, 175, 55, 0.2);
+    overflow: hidden;
+}
+
+.gold-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #d4af37;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+    animation: goldFill 1.5s ease forwards;
+}
+
+@keyframes goldFill {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+/* =================================
+   DESCRIPTION
+================================= */
+
+.contact-description {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 55px;
+    color: #bdb49a;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+
+/* ===== CONTACT CARDS FIX ===== */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: 45px auto 0;
+}
+
+.contact-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+    padding: 30px;
+    background: rgba(14, 12, 8, 0.92);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s ease,
+                background 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-6px);
+    border-color: #d4af37;
+    background: rgba(25, 20, 10, 0.96);
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    flex: 0 0 58px;
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    font-size: 24px;
+}
+
+.contact-card h2 {
+    margin: 4px 0 0;
+    color: #f5efd8;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+}
+
+.contact-card p {
+    margin: 0;
+    color: #c5b98f;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contact-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    color: #d4af37;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #fff1b0;
+}
+
+.contact-card a i {
+    transition: transform 0.3s ease;
+}
+
+.contact-card a:hover i {
+    transform: translateX(5px);
+}
+
+/* Mobile layout */
+@media (max-width: 700px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .contact-card {
+        padding: 24px;
+    }
+}
+
+
+/* =================================
+   ICONS
+================================= */
+
+.contact-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    color: #d4af37;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    font-size: 22px;
+    transition: 0.3s ease;
+}
+
+.contact-card:hover .contact-icon {
+    color: #080706;
+    background: #d4af37;
+    transform: translateY(-3px);
+}
+
+/* =================================
+   CARD TEXT
+================================= */
+
+.contact-card h2 {
+    color: #f5efd8;
+    font-size: 25px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    min-height: 50px;
+    color: #bdb49a;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* =================================
+   CONTACT LINKS
+================================= */
+
+.contact-card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #d4af37;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.contact-card a:hover {
+    color: #f2d675;
+}
+
+.contact-card a i {
+    transition: transform 0.3s ease;
+}
+
+.contact-card a:hover i {
+    transform: translateX(5px);
+}
+
+/* =================================
+   PAGE TRANSITIONS
+================================= */
+
+@keyframes pageEnter {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contact-page.page-exit {
+    animation: pageExit 0.7s ease forwards;
+}
+
+@keyframes pageExit {
+    to {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+/* NAVBAR RESPONSIVE — MATCH skills.css */
+
+@media (max-width: 900px) {
+    .navbar {
+        padding: 0 30px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar {
+        height: 75px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+}
+
+/* Hide scrollbar but keep scrolling */
+html {
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    overflow-x: hidden;
+}

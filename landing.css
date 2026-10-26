@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width:100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: georgia, "Times New Roman", serif;
+}
+
+body {
+    background: #080706;
+    color: #f5efd8;
+}
+
+.landing {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.landing-background {
+    position: absolute;
+    inset: 0;
+
+        background:
+         radial-gradient(
+            ellipse at 50% 35%,
+            rgba(212, 175, 55, 0.07),
+            transparent 55%
+        ),
+        linear-gradient(
+            rgba(8,7,6,0.78),
+            rgba(8,7,6,0.94)
+        ),
+        url("#");
+
+        background-size: cover;
+        background-position: center;
+        filter: grayscale(30%) blur(2px);
+        transform:scale(1.05);
+}
+
+.landing::after {
+    content:"";
+    position:absolute;
+    inset:25px;
+
+    border:1px solid rgba(212, 175, 55, 0.35);
+
+    pointer-events:none;
+}
+
+.landing-content {
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+
+    animation: appear 1.5s ease;
+}
+
+.welcome{
+    color: #d4af37;
+    letter-spacing:7px;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+h1 {
+    font-size:clamp(50px, 9vw, 120px);
+    line-height:0.9;
+    letter-spacing: -3px;
+    color: #f5efd8;
+    text-shadow:
+        0 0 20px rgba(212, 175, 55, 0.12);
+    text-align: center;
+    justify-content: center;
+}
+
+h1 span {
+    color:#d4af37;
+    font-weight:400;
+}
+
+.instruction {
+    margin-top: 50px;
+    color: #a9945b;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
+.arrow {
+    margin-top: 20px;
+    color: #d4af37;
+    font-size: 30px;
+
+    animation: bounce 1.5s infinite;
+}
+
+.landing.exit {
+    animation: slideUp 0.9s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform:translate(-50%, -40%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -40%);
+    }
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px)
+    }
+}
+
+@keyframes slideUp {
+    to {
+        transform: translateY(-100%)
+    }
+}

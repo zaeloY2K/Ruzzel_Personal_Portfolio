@@ -1,0 +1,911 @@
+/* =================================
+   RESET
+   ================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #080706;
+    color: #f5efd8;
+    font-family: Georgia, "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+/* =================================
+   NAVBAR
+   ================================= */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 85px;
+    display: flex;
+    align-items: center;
+   
+    padding: 0 7%;
+
+    border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+    background: rgba(8, 7, 6, 0.92);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+/*--------LOGO--------*/
+
+.logo {
+    color:#f5efd8;
+    text-decoration:none;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #d4af37;
+}
+
+/*-------------NAVLINKS------------*/
+
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap:35px;
+    margin-left: auto;
+}
+
+.nav-links a {
+    position: relative;
+    color: #c5b98f;
+    text-decoration:none;
+    font-family:Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    transition:0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #d4af37;
+}
+
+/*--------GOLD LINE--------*/
+
+.nav-links a::after {
+    content: "";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:1px;
+    background: #d4af37;
+    transition:0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width:100%;
+}
+
+
+
+/* GOLD LINE — PREVENT OVERLAPPING */
+
+.gold-line {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: 3px;
+    margin: 25px 0;
+    background: rgba(212, 175, 55, 0.2);
+    overflow: hidden;
+}
+
+.gold-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #d4af37;
+    animation: goldFill 1.5s ease forwards;
+}
+
+@keyframes goldFill {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+/* Smaller screens */
+@media (max-width: 800px) {
+    .gold-line {
+        max-width: 100%;
+        margin: 20px 0;
+    }
+}
+
+
+
+
+/* =================================
+   MAIN PAGE
+   ================================= */
+
+/* =========================
+   PAGE SLIDE TRANSITION
+   ========================= */
+
+.skills-page {
+    position: relative;
+    min-height: 100vh;
+    padding-top: 140px;
+    padding-bottom: 100px;
+    overflow: hidden;
+
+    animation: skillsEnter 0.8s ease-out forwards;
+}
+
+.skills-page.page-exit {
+    animation: skillsExit 0.5s ease-in forwards;
+}
+
+@keyframes skillsEnter {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* ENTER */
+@keyframes skillsEnter {
+
+    from {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+}
+
+
+/* EXIT */
+@keyframes skillsExit {
+
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+
+}
+
+/* =================================
+   BACKGROUND
+   ================================= */
+
+.skills-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(8, 7, 6, 0.90),
+            rgba(8, 7, 6, 0.97)
+        ),
+        url("background.jpg") center center / cover no-repeat;
+
+    z-index: -1;
+
+}
+
+
+/* =================================
+   CONTENT
+   ================================= */
+
+.skills-content {
+
+    position: relative;
+
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+/* SECTION LABEL */
+
+.section-label {
+
+    color: #d4af37;
+
+    font-size: 15px;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* TITLE */
+
+.skills-content h1 {
+
+    font-size: clamp(45px, 7vw, 85px);
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    color: #f5efd8;
+
+}
+
+.skills-content h1 span {
+
+    color: #d4af37;
+
+    display: block;
+
+}
+
+
+/* GOLD LINE */
+
+
+.gold-line {
+    width: 1000px;
+    height: 3px;
+    margin: 25px auto;
+    position: relative;
+    background: rgba(212, 175, 55, 0.2);
+    overflow: hidden;
+}
+
+.gold-line::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #D4AF37;
+    animation: goldFill 1.5s ease forwards;
+}
+
+@keyframes goldFill {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0;
+    }
+}
+
+
+
+/* DESCRIPTION */
+
+.skills-description {
+
+    max-width: 700px;
+
+    margin: 0 auto 60px;
+
+    color: #aaa187;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+
+/* =================================
+   SKILLS GRID
+   ================================= */
+
+.skills-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    text-align: left;
+
+}
+
+
+/* =================================
+   SKILL CARD
+   ================================= */
+
+.skill-card {
+
+    position: relative;
+
+    min-height: 310px;
+
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 22, 17, 0.95),
+            rgba(10, 9, 7, 0.95)
+        );
+
+    border: 1px solid rgba(212, 175, 55, 0.25);
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+
+    overflow: hidden;
+
+}
+
+
+/* GOLD SIDE */
+
+.skill-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 3px;
+
+    height: 0;
+
+    background: #d4af37;
+
+    transition: height 0.35s ease;
+
+}
+
+
+/* HOVER */
+
+.skill-card:hover {
+
+    transform: translateY(-8px);
+
+    border-color: rgba(212, 175, 55, 0.75);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.5);
+
+}
+
+.skill-card:hover::before {
+
+    height: 100%;
+
+}
+
+
+/* NUMBER */
+
+.skill-number {
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 25px;
+
+    color: #51462a;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =================================
+   SKILL ICON / LABEL
+   ================================= */
+
+.skill-icon {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 75px;
+
+    height: 75px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #d4af37;
+
+    color: #d4af37;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+
+}
+
+
+/* Counter rotate text */
+
+.skill-icon {
+
+    position: relative;
+
+}
+
+.skill-icon::first-line {
+
+    transform: rotate(-45deg);
+
+}
+
+
+/* CARD TITLE */
+
+.skill-card h2 {
+
+    color: #f5efd8;
+
+    font-size: 24px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* DESCRIPTION */
+
+.skill-card p {
+
+    color: #938a73;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =================================
+   EXPERIENCE
+   ================================= */
+
+.experience {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+
+}
+
+.experience span {
+
+    color: #6e654f;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+}
+
+.experience strong {
+
+    color: #d4af37;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =================================
+   RESPONSIVE
+   ================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+
+        padding: 0 30px;
+
+    }
+
+    .nav-links {
+
+        gap: 20px;
+
+    }
+
+    .skills-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        height: 75px;
+
+        padding: 0 20px;
+
+    }
+
+    .logo {
+
+        font-size: 20px;
+
+    }
+
+    .nav-links {
+
+        gap: 12px;
+
+    }
+
+    .nav-links a {
+
+        font-size: 9px;
+
+        letter-spacing: 1px;
+
+    }
+
+    .skills-page {
+
+        padding-top: 110px;
+
+    }
+
+    .skills-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .skills-description {
+
+        font-size: 14px;
+
+    }
+
+}
+
+/* =========================
+   PAGE TRANSITION
+   ========================= */
+
+.skills-page {
+    animation: pageEnter 0.8s ease forwards;
+}
+
+.skills-page.page-exit {
+    animation: pageExit 0.7s ease forwards;
+}
+
+@keyframes pageEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(100vh);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes pageExit {
+
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-100vh);
+    }
+
+}
+
+/* Hide scrollbar but keep scrolling */
+html {
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* =========================
+   OTHER SKILLS
+   ========================= */
+
+.other-skills {
+    width: 100%;
+    margin-top: 120px;
+    text-align: center;
+}
+
+.other-skills h2 {
+    color: #f5efd8;
+    font-size: clamp(40px, 6vw, 70px);
+    font-weight: 500;
+    letter-spacing: 5px;
+}
+
+.other-skills h2 span {
+    color: #d4af37;
+}
+
+.other-skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+    text-align: left;
+}
+
+.other-skill-card {
+    position: relative;
+    min-height: 280px;
+    padding: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25,22,17,.95),
+            rgba(10,9,7,.95)
+        );
+
+    border: 1px solid rgba(212,175,55,.25);
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+
+    overflow: hidden;
+}
+
+.other-skill-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px;
+    height: 0;
+    background: #d4af37;
+    transition: height .35s ease;
+}
+
+.other-skill-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(212,175,55,.75);
+    box-shadow: 0 15px 40px rgba(0,0,0,.5);
+}
+
+.other-skill-card:hover::before {
+    height: 100%;
+}
+
+.other-skill-number {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+
+    color: #51462a;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.other-skill-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid #d4af37;
+
+    color: #d4af37;
+    font-size: 24px;
+}
+
+.other-skill-card h3 {
+    color: #f5efd8;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.other-skill-card p {
+    color: #938a73;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+
+    .other-skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .other-skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+.other-skills {
+    margin-top: 120px;
+}
+
+.other-skills {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto 100px;
+    text-align: center;
+}
+
+.other-skills h1 {
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: .95;
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: #f5efd8;
+}
+
+.other-skills h1 span {
+    color: #d4af37;
+    display: block;
+}
+
+.other-skills .gold-line {
+    width: 1000px;
+    height: 2px;
+    background: #d4af37;
+    margin: 30px auto;
+}
+
+.other-skills .skills-description {
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+/* =========================
+   NETWORKING SKILLS
+   ========================= */
+
+.networking-skills {
+    width: 90%;
+    max-width: 1200px;
+    margin: 130px auto 100px;
+    text-align: center;
+}
+
+.networking-skills h1 {
+    font-size: clamp(45px, 7vw, 85px);
+    line-height: .95;
+    font-weight: 500;
+    letter-spacing: 5px;
+    color: #f5efd8;
+}
+
+.networking-skills h1 span {
+    color: #d4af37;
+    display: block;
+}
+
+.networking-skills .gold-line {
+    width: 1000px;
+    height: 2px;
+    background: #d4af37;
+    margin: 30px auto;
+}
+
+.networking-skills .skills-description {
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
